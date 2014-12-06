@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  datadone: 1
+  dataremaining: 1
+  percentagedata: MyString
+
+two:
+  datadone: 1
+  dataremaining: 1
+  percentagedata: MyString
