@@ -1,0 +1,32 @@
+<table>
+  <h2>Xml Dumping status</h2>
+  <tr>
+    <%= simple_form_for :book do |f| %>
+        <td><%= f.label :records %> </td>
+        <td><%= @xmltrack.totalrecords %></td>
+        <br/>
+        </tr>
+        <tr>
+          <td><%= f.label :completed %></td>
+          <td><%= @xmltrack.datacompleted %></td>
+          <br/>
+        <tr>
+          <td><%= f.label :remaining %></td>
+          <td><%= @xmltrack.dataremaining %></td>
+        </tr>
+        <tr>
+          <br/>
+          <td><%= f.label :timetaken %></td>
+          <td><%= @xmltrack.timetaken %></td>
+        </tr>
+        <br/>
+        <tr>
+          <br/>
+          <td><%= f.label :status %></td>
+          <td><%=  %></td>
+          <td><%= link_to 'Rerun',{:controller=> "report", :action=> "rerun" },:class=> "crud_button btn_jobs" %></td>
+          <td></td>
+        </tr>
+
+    <% end %>
+</table>

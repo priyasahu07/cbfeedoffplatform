@@ -2,6 +2,9 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
 
 
+  get 'report/xml_dpi'
+  get 'report/rerun'
+
   mount Sidekiq::Web => '/sidekiq'
   root "home#index"
   get "home/show"
