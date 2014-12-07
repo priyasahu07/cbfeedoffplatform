@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get 'report/rerun'
 
   mount Sidekiq::Web => '/sidekiq'
-  root "home#index"
-  get "home/show"
+  get "home/index"
+  root "home#show"
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
