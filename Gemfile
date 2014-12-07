@@ -22,7 +22,7 @@ gem 'devise'
 gem 'sinatra', '>= 1.3.0', :require => nil
 
 gem 'sidekiq'
-
+gem 'css3-progress-bar-rails'
 # bootstrap
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
