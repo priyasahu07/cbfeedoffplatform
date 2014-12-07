@@ -16,3 +16,8 @@
  *= require bootstrap.min
  *= require landing-page
  */
+
+.prog-bar
+{
+    width:450px !important;
+}
