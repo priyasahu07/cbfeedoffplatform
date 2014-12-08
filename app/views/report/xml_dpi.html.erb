@@ -1,48 +1,48 @@
-
-<div class="panel panel-default">
+</br>
+<br/>
+<br/>
+<br/>
+<br/>
+<div align="center">
+<div class="panel panel-default" align="left" style="width:50%">
   <div class="panel-heading">Xml Dumping status</div>
   <div class="panel-body">
-<table>
-    <%= simple_form_for :book do |f| %>
-<tr>
-        <td class="label label-primary"><%= f.label :records %> </td>
-
+    <table>
+      <h3>Feed1</h3>
+      <tr>
+        <td class="label label-primary"><%= label_tag  :Allrecords %></td>
         <td class="label label-default"><%= @xmltrack.totalrecords %></td>
-</tr>
+      </tr>
+      <tr>
+        <td class="label label-primary"><%= label_tag  :completed %></td>
+        <td class="label label-default"><%= @xmltrack.datacompleted %></td>
+      </tr>
+      <tr>
+        <td class="label label-primary"><%= label_tag  :remaining %></td>
+        <td class="label label-default"><%= @xmltrack.dataremaining %></td>
+      </tr>
+      <tr>
+        <td class="label label-primary"><%= label_tag  :timetaken %></td>
+        <td class="label label-default"><%= @xmltrack.timetaken %></td>
+      </tr>
+      <tr>
+        <td class="label label-primary"><%= label_tag  :status %></td>
+        <% if @xmltrack.dataremaining == 0 %>
+            <td class="label label-default"><%= label_tag "Success" %></td>
+            <% else %>
+            <td class="label label-default"><%= label_tag  "Failure" %></td>
+      <% end %>
 
+      </tr>
+    </table>
 
-        <tr>
-          <td class="label label-primary"><%= f.label :completed %></td>
-          <td class="label label-default"><%= @xmltrack.datacompleted %></td>
-</tr>
+    <p position="relative" align="center"> <%= button_to "Restart",{:controller=> "report", :action=> "rerun" }, :class => "btn-custom"  %></p>
 
-        <tr>
-          <td class="label label-primary"><%= f.label :remaining %></td>
-          <td class="label label-default"><%= @xmltrack.dataremaining %></td>
-        </tr>
-        <tr>
-
-          <td class="label label-primary"><%= f.label :timetaken %></td>
-          <td class="label label-default"><%= @xmltrack.timetaken %></td>
-        </tr>
-
-        <tr>
-
-          <td class="label label-primary"><%= f.label :status %></td>
-          <td class="label label-default"><%=  %></td>
-          <td><%= link_to 'Rerun',{:controller=> "report", :action=> "rerun" },:class=> "crud_button btn_jobs" %></td>
-
-        </tr>
-
-    <% end %>
-
-</table>
-
-<br/>
-<div class="prog-bar"  >
-<%= progress_bar("44", :color => 'grey', :rounded => true) %>
-</div>
-
+    <br/>
+    <div class="prog-bar"  >
+      <%= progress_bar("#{@xmltrack.percentagedata}", :color => 'grey', :rounded => true) %>
+    </div>
+  </div>
 </div>
 </div>
 

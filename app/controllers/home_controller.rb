@@ -10,6 +10,8 @@ class HomeController < ApplicationController
 
   end
 
+  def xml_dpi_gen
 
+  end
 
 end
