@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 
   get 'report/xml_dpi'
   get 'report/rerun'
+  get 'home/xml_dpi_gen'
 
   mount Sidekiq::Web => '/sidekiq'
-  get "home/index"
+  post "home/index"
   root "home#show"
 
   devise_for :users
