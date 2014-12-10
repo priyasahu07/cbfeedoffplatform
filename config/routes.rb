@@ -4,11 +4,9 @@ Rails.application.routes.draw do
 
   get 'report/xml_dpi'
   get 'report/rerun'
-  get 'home/xml_dpi_gen'
 
   mount Sidekiq::Web => '/sidekiq'
-  post "home/index"
-  root "home#show"
+root "home#index"
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

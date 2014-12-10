@@ -4,45 +4,65 @@
 <br/>
 <br/>
 <div align="center">
-<div class="panel panel-default" align="left" style="width:50%">
-  <div class="panel-heading">Xml Dumping status</div>
-  <div class="panel-body">
-    <table>
-      <h3>Feed1</h3>
-      <tr>
-        <td class="label label-primary"><%= label_tag  :Allrecords %></td>
-        <td class="label label-default"><%= @xmltrack.totalrecords %></td>
-      </tr>
-      <tr>
-        <td class="label label-primary"><%= label_tag  :completed %></td>
-        <td class="label label-default"><%= @xmltrack.datacompleted %></td>
-      </tr>
-      <tr>
-        <td class="label label-primary"><%= label_tag  :remaining %></td>
-        <td class="label label-default"><%= @xmltrack.dataremaining %></td>
-      </tr>
-      <tr>
-        <td class="label label-primary"><%= label_tag  :timetaken %></td>
-        <td class="label label-default"><%= @xmltrack.timetaken %></td>
-      </tr>
-      <tr>
-        <td class="label label-primary"><%= label_tag  :status %></td>
-        <% if @xmltrack.dataremaining == 0 %>
-            <td class="label label-default"><%= label_tag "Success" %></td>
-            <% else %>
-            <td class="label label-default"><%= label_tag  "Failure" %></td>
-      <% end %>
+  <div class="panel panel-default" align="left" style="width:50%">
+    <div class="panel-heading">Xml Dumping status</div>
+    <div class="panel-body">
 
-      </tr>
-    </table>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-2"> <b>Feed1</b></div>
+          <div class="col-sm-5">
+            <p position="relative" align="center"> <%= button_to "Generate Xml",{:controller=> "report", :action=> "rerun" }, :class => "btn-custom"  %></p></div>
+        </div>
+      </div>
+      <div class="container">
 
-    <p position="relative" align="center"> <%= button_to "Restart",{:controller=> "report", :action=> "rerun" }, :class => "btn-custom"  %></p>
+        <u> Report for xml Generation</u>
+        </br>
+        <br/>
+        <div class="row">
+          <div class="col-sm-2"> <div class="label label-primary"><%= label_tag  :Allrecords %> </div>  </div>
+          <div class="col-sm-10"><div class="label label-default"><%= @xmltrack.totalrecords %> </div> </div>
+        </div>
 
-    <br/>
-    <div class="prog-bar"  >
-      <%= progress_bar("#{@xmltrack.percentagedata}", :color => 'grey', :rounded => true) %>
+        <div class="row">
+          <div class="col-sm-2"><div class="label label-primary"><%= label_tag  :completed %></div>  </div>
+          <div class="col-sm-10"><div class="label label-default"><%= @xmltrack.datacompleted %></div>  </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-2"><div class="label label-primary"><%= label_tag  :remaining %></div>  </div>
+          <div class="col-sm-10"><div class="label label-default"><%= @xmltrack.dataremaining %></div>  </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-2"><div class="label label-primary"><%= label_tag  :timetaken %></div>  </div>
+          <div class="col-sm-10"><div class="label label-default"><%= @xmltrack.timetaken %></div>  </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-2"> <div class="label label-primary"><%= label_tag  :xmlstatus %></div>  </div>
+
+
+
+          <% if @xmltrack.dataremaining == 0 %>
+
+              <div class="col-sm-2"><div class="label label-default"><%= label_tag "Success" %></div></div>
+
+          <% else %>
+              <div class="col-sm-2"><div class="label label-default"><%= label_tag  "Failure" %></div></div>
+          <% end %>
+          <div class="col-sm-2"><p position="relative" align="center"> <%= button_to "Restart",{:controller=> "report", :action=> "rerun" }, :class => "btn-custom"  %></p></div>
+
+        </div>
+      </div>
+
+
+
+      <br/>
+      <div class="prog-bar"  >
+        <%= progress_bar("#{@xmltrack.percentagedata}", :color => 'grey', :rounded => true) %>
+      </div>
     </div>
   </div>
 </div>
-</div>
-
